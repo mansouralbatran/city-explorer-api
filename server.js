@@ -29,7 +29,7 @@ server.get('/getDataFromweathwr',(reqs,respo)=>{
 
 })
 server.get('*',(reqs,respo)=>{
-    res.send('not found')
+    respo.send('not found')
 })
 server.listen(PORT,()=>{
     console.log(`Listning on PORT ${PORT}`)
