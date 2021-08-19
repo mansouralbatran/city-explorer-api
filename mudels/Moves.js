@@ -1,6 +1,8 @@
 const axios = require('axios');
 module.exports = getmove;
 
+let inmomary1={};
+
 
 
 async function getmove(request, respons) {
@@ -10,12 +12,17 @@ async function getmove(request, respons) {
     // console.log( 'rrrrrrrr',movedata.data);
 
     // respons.send('heloo')}
-
+    if(inmomary1[cityreq2]!==undefined){respons.send(inmomary1[cityreq2])
+    
+    console.log('data catch');}
+    else{
+        console.log('data dismiss');
     try {
         let movesend = movedata.data.results.map((ele) => {
             // console.log(ele);
             return new sendobj2(ele);
         })
+        inmomary1[cityreq2]=movesend
 
         respons.send(movesend);
 
@@ -23,7 +30,7 @@ async function getmove(request, respons) {
     catch { respons.send('not found2') }
 
 }
-
+}
 
 
 
